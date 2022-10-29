@@ -7,6 +7,7 @@
 	<meta name="title" content="Social Stream - Dashboard" />
 	<link rel="icon" href="./icons/favicon.ico" />
 	
+
 	<style>
 	
 		:root {
@@ -166,7 +167,7 @@
 		body > div {
 			 -webkit-app-region: no-drag;
 		}
-		body > div > #menu {
+		body > div > .menu {
 			 -webkit-app-region: drag;
 		}
 		
@@ -176,15 +177,9 @@
 		}
 		
 		body.lightmode input::placeholder {
-			
-				  color: black;
-				  opacity: 1; /* Firefox */
-			
+		  color: black;
+		  opacity: 1; /* Firefox */
 		}
-		body.lightmode #menu{
-			background-color: #e9e9e9;
-		}
-		
 		
 		.bot.compactmode {
 			padding: 0;
@@ -517,170 +512,10 @@
 			white-space: nowrap;
 		}
 
-		#menu {
-			position:fixed;
-			top:0;
-			right:0;
-			display:block;
-			background-color: #888;
-			z-index:2;
-		}
-		
-		#menu > button {
-			display:inline-block;
-			padding:5px;
-			margin: 5px;
-			background-color: #DDD2;
-			opacity:0.9;
-			-webkit-app-region: no-drag;
-		}
-		#menu > button:hover {
-			background-color: #DDDF;
-			cursor: pointer;
-			opacity:1.0;
-		}
-		#menu > button.red {
-			background-color: #FCC4;
-		}
-		#menu > button.green {
-			background-color: #affdff!important;
-			color: black!important;
-		}
-		#menu > button.red:hover {
-			background-color: #FCCF;
-		}
-		
-		#menu > button.blue {
-			background-color: #99a8cc;
-		}
-		#menu > button.blue:hover {
-			background-color: #99c8ff;
-		}
-		
-		#menu > input {
-			padding: 5px;
-			background-color: var(--input-color);
-			border: 1px solid black;
-			border-radius: 5px;
-			-webkit-app-region: no-drag;
-		}
-		#menu > input:focus {
-		  background-color: var(--input-color);
-		}
-		
-		#menu.darkmode > button {
-			background-color: #0004;
-			color:white;
-		}
-		#menu.darkmode > button:hover {
-			background-color: #000F;
-			opacity:1.0;
-		}
-		#menu.darkmode > button.blue {
-			background-color: #99a8cc;
-		}
-		#menu.darkmode > button.red {
-			background-color: #F004;
-		}
-		#menu.darkmode > button.blue:hover {
-			background-color: #99c8ff;
-		}
-		#menu.darkmode > button.red:hover {
-			background-color: #600F;
-		}
-		#menu.darkmode > input {
-			background-color: #0004;
-			color:white;
-			border: 1px solid white;
-		}
-		#menu.darkmode > input:hover {
-			background-color: #0000;
-		}
-		
-		@media only screen and (max-width: 1000px){
-			#menu > button {
-				display:inline-block;
-				padding:2px;
-				margin: 1px;
-				font-size:95%;
-			}
-			#menu > input {
-				display:inline-block;
-				padding:5px 4px;
-				margin: 1px;
-				font-size:85%;
-				max-width: 110px;
-			}
-		}
-		@media only screen and (max-width: 870px){
-			#menu > button {
-				display:inline-block;
-				margin: 1px;
-				font-size:80%;
-			}
-			#menu > input {
-				display:inline-block;
-				padding:5px 3px;
-				margin: 1px;
-				font-size:75%;
-				max-width: 100px;
-			}
-		}
-		@media only screen and (max-width: 640px){
-			#menu > button {
-				display:inline-block;
-				margin: 0px;
-				font-size:75%;
-			}
-			#menu > input {
-				display:inline-block;
-				padding:4px 2px;
-				margin: 0px;
-				font-size:70%;
-				max-width: 80px;
-			}
-		}
-		@media only screen and (max-width: 480px){
-			#menu > button {
-				display:inline-block;
-				margin: 0px;
-				font-size:70%;
-			}
-			#menu > input {
-				display:inline-block;
-				padding:3px 1px;
-				margin: 0px;
-				font-size:70%;
-				max-width: 70px;
-			}
-		}
-		.pressed {
-			background-color: #9C9C !important;
-		}
-		.queued {
-			background-color: #99a8cc !important;
-		}
-		
-		.icon {
-			margin: 4px 2px auto 1px;
-			border-radius: 50%;
-		}
-		
 		.invert {
 			filter: invert(1);
 		}
 		
-		#jumpto {
-			position: fixed !important;
-			right: 20px;
-			bottom: 20px;
-		}
-		
-		#jumpto {
-			position: fixed !important;
-			right: 20px;
-			bottom: 20px;
-		}
 		
 		input[type="text"] {
 			width: 110px;
@@ -688,12 +523,7 @@
 		input[type="text"]:focus {
 			width: 170px;
 		}
-		#filter_messages{
-			width: 45px;
-		}
-		#filter_messages:focus{
-			width: 150px;
-		}
+		
 		input[type="text"] {
 			-webkit-transition: all 0.4s ease 0s;
 			-moz-transition: all 0.4s ease 0s;
@@ -839,29 +669,331 @@
 			 animation: swiperight 1s, fadein 1s, fadeout var(--fade-out-time);
 		}
 		
+		.icon {
+			margin: 4px 2px auto 1px;
+			border-radius: 50%;
+		}
 		
+		#bottom_menubar {
+			position:fixed;
+			bottom:0;
+			right:0;
+			background-color: #888;
+			z-index:2;
+			padding: 0px;
+			margin: 0px;
+			border: solid black 0px;
+			width: 100%;
+			text-align:right;
+		}
+		
+		
+		#menubar {
+			position:fixed;
+			top:0;
+			right:0;
+			z-index:2;
+			padding: 0px;
+			margin: 0px auto;
+			border: solid black 0px;
+			width: 100%;
+			text-align:center;
+			background-color: #888;
+		}
+		
+		.menu {
+			padding: 0px;
+			margin: auto;
+			border: solid black 0px;
+		}
+		
+		body.lightmode .menu {
+			background-color: #e9e9e9;
+		}
+		
+		.menu button {
+			display:inline-block;
+			background-color: #0000;
+			-webkit-app-region: no-drag;
+			padding: 0px;
+			margin: auto;
+			border: solid black 0px;
+			vertical-align: middle;
+		}
+		.menu button:hover {
+			cursor: pointer;
+		}
+		
+		.menu input {
+			padding: 0px;
+			margin: 0px;
+			background-color: var(--input-color);
+			border: 1px solid black;
+			border-radius: 5px;
+			-webkit-app-region: no-drag;
+		}
+		.menu  input:focus {
+		  background-color: var(--input-color);
+		}
+		
+		.menu.darkmode button {
+		
+		}
+		.menu.darkmode  button:hover {
+			opacity:0.9
+		}
+		
+		
+		.menu.darkmode input {
+			background-color: #0004;
+			color:white;
+			border: 1px solid white;
+		}
+		.menu.darkmode input:hover {
+			background-color: #0000;
+		}
+		
+		@media only screen and (max-width: 1000px){
+			.menu  button {
+				display:inline-block;
+				font-size:95%;
+			}
+			.menu  input {
+				display:inline-block;
+				font-size:85%;
+				max-width: 110px;
+			}
+		}
+		@media only screen and (max-width: 870px){
+			.menu  button {
+				display:inline-block;
+				font-size:80%;
+			}
+			.menu  input {
+				display:inline-block;
+				font-size:75%;
+				max-width: 100px;
+			}
+		}
+		@media only screen and (max-width: 640px){
+			.menu  button {
+				display:inline-block;
+				font-size:75%;
+			}
+			.menu input {
+				display:inline-block;
+				font-size:70%;
+				max-width: 80px;
+			}
+		}
+		@media only screen and (max-width: 480px){
+			.menu  button {
+				display:inline-block;
+				font-size:70%;
+			}
+			.menu  input {
+				display:inline-block;
+				font-size:70%;
+				max-width: 70px;
+			}
+		}
+		div.pressed {
+			background-color: #9C9C !important;
+		}
+		
+		
+		.queued {
+			background-color: #99a8cc !important;
+		}
+	
+		
+		/* 
+		#select_save_file {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#select_save_file:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#next_in_queue {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#next_in_queue:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#show_only_queue {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#show_only_queue:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		*/
+		
+		#clear_overlay {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#clear_overlay:pressed {
+			background-image: url(./icons/rectangle_on.png)
+		}
+		
+		#pause {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#pause:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#autoshow {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#autoshow:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#tts {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#tts:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#notify {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#notify:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#filter_messages{
+			width: 45px;
+		}
+		#filter_messages:focus{
+			width: 150px;
+		}
+		
+		#hide_emoji {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#hide_emoji:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#only_donos {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#only_donos:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#say_hello {
+			background-image: url(./icons/rectangle_off.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 33px;
+			height: 23px;
+		}
+		#say_hello:pressed {
+			background-image: url(./icons/rectangle_on.png);
+		}
+		
+		#chatInput {
+		}
+		#chatInput:pressed {
+		}
+		
+		#jumpto {
+			background-image: url(./icons/down_arrow.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 23px;
+			height: 23px;
+		}
+		
+		#jumpto:pressed {
+			background-image: url(./icons/down_arrow.png);
+		}
 		
 	</style>
 </head>
 <body >
 	<div id="pinned" class="output notcompactmode"></div>
 	<div id="output" class="output notcompactmode"></div>
-	<div id="menu">
-		<button id="select_save_file" data-state="0" onclick="overwriteFile('setup');" title="Select the file you wish to save the most recent message to" class="green hidden">💾 Set Save File Location</button>
-		<button id="next_in_queue" data-state="0" onclick="nextInQueue();" title="Hold CTRL when selecting messages to add them to the queue instead" class="hidden blue">Next in Queue</button>
-		<button id="show_only_queue" data-state="0" onclick="filterQueued(this);" title="Show only the messages in queue" class="hidden">Show Only Queued</button>
-		<button id="clear_overlay" data-state="0" onclick="sendDataP2P(false);" title="Clear the featured chat overlay. (Not this dock)" class="red">Clear Current Overlay</button>
-		<button id="pause" data-state="0" onclick="pause(this);" title="Pause incoming chat messages">⏯︎</button>
-		<button id="autoshow" data-state="0" onclick="autoShow(this);" title="Auto-feature chat messages as they come in">Auto</button>
-		<button id="tts" data-state="0" onclick="speech = !speech; window.speechSynthesis.cancel(); this.classList.toggle('pressed');" title="Toggle whether to read out-loud incoming messages using text-to-speech">🔊</button>
-		<button id="notify" data-state="0" onclick="beep = !beep; if (beep){this.classList.add('pressed');this.innerText = '🔕';playtone();} else {this.classList.remove('pressed');this.innerText = '🔔';}" title="Beep when there is a new message">🔔</button>
-		<input id="filter_messages" onchange="filterMessages(this.value);" placeholder="Filter messages" type="text" />
-		<button id="hide_emoji" data-state="0" onclick="emoji(this);" title="Hide all emoji-only messages">🚫🙂</button>
-		<button id="only_donos" data-state="0" onclick="donos(this);" title="Show only messages that have donations/cheer">🤑</button>
-		<button id="say_hello" data-state="0" onclick="toggleChat();" title="Send a text message to all social endpoints">💬</button>
-		<input type="text" id="chatInput" style="display:none;" placeholder="Say something.." />
-		<button id="jumpto" data-state="0" onclick="jumptoBottom(this);" title="Jump to bottom">V</button>
-	<div>
+	<div id="menubar" class='menu'>
+		<div id="mainmenu">
+			<button id="select_save_file" data-state="0" onclick="overwriteFile('setup');" title="Select the file you wish to save the most recent message to" class="green hidden">💾 Set Save File Location</button>
+			<button id="next_in_queue" data-state="0" onclick="nextInQueue();" title="Hold CTRL when selecting messages to add them to the queue instead" class="hidden blue">Next in Queue</button>
+			<button id="show_only_queue" data-state="0" onclick="filterQueued(this);" title="Show only the messages in queue" class="hidden">Show Only Queued</button>
+			<button id="clear_overlay" data-state="0" onclick="sendDataP2P(false);" title="Clear the featured chat overlay. (Not this dock)" class="red"></button>
+			<button id="pause" data-state="0" onclick="pause(this);" title="Pause incoming chat messages"></button>
+			<button id="autoshow" data-state="0" onclick="autoShow(this);" title="Auto-feature chat messages as they come in"></button>
+			<button id="tts" data-state="0" onclick="speech = !speech; window.speechSynthesis.cancel(); this.classList.toggle('pressed');" title="Toggle whether to read out-loud incoming messages using text-to-speech"></button>
+			<button id="notify" data-state="0" onclick="beep = !beep; if (beep){this.classList.add('pressed');playtone();} else {this.classList.remove('pressed');}" title="Beep when there is a new message"></button>
+
+			<button id="hide_emoji" data-state="0" onclick="emoji(this);" title="Hide all emoji-only messages"></button>
+			<button id="only_donos" data-state="0" onclick="donos(this);" title="Show only messages that have donations/cheer"></button>
+		</div>
+	</div>
+	<div id="bottom_menubar" class='menu'>
+		<div id="bottom_menu" >	
+			<input id="filter_messages" onchange="filterMessages(this.value);" placeholder="Filter messages" type="text" />
+			<button id="say_hello" data-state="0" onclick="toggleChat();" title="Send a text message to all social endpoints"></button>
+			<input type="text" id="chatInput" style="display:none;" placeholder="Say something.." />
+			<button id="jumpto" data-state="0" onclick="jumptoBottom(this);" title="Jump to bottom"></button>
+		</div>
+	</div>
 	<audio id="testtone" style="display:none;" preload="metadata">
 		<source src="./audio/tone.mp3" type="audio/mpeg"> 
 		<source src="./audio/tone.ogg" type="audio/ogg"> 
@@ -1080,7 +1212,7 @@
 	var beep = false;
 	if (urlParams.has("beep")){ // removes HTML from messages, donations, and names.
 		beep = true;
-		document.getElementById("notify").innerHTML = "🔕";
+		//document.getElementById("notify").innerHTML = "🔕";
 		document.getElementById("notify").classList.add("pressed");
 		playtone();
 	} 
@@ -1112,7 +1244,8 @@
 		document.getElementById("output").style.textAlign = "right";
 		document.getElementById("output").style.whiteSpace = "nowrap";
 		document.getElementById("output").classList.remove("notcompactmode");
-		document.getElementById("menu").style.top = "42px";
+		document.getElementById("menubar").style.top = "42px";
+		document.getElementById("bottom_menubar").classList.add("darkmode");
 		compactmode = true;
 		customNodeLimit = 15;
 	} 
@@ -1305,11 +1438,11 @@
 	if (urlParams.has("compact") || urlParams.has("overlaymode")){
 		compactmode = true;
 		document.getElementById("output").classList.remove("notcompactmode");
-		//document.getElementById("menu").style.display = "none";
 	} 
 	
 	if (urlParams.has("hidemenu") || urlParams.has("nomenu")){
-		document.getElementById("menu").style.display = "none";
+		document.getElementById("menubar").classList.add("hidden");
+		document.getElementById("bottom_menubar").classList.add("hidden");
 	}
 	
 	if (urlParams.has("save")){
@@ -1329,7 +1462,8 @@
 		// enable compact mode also
 		compactmode = true;
 		document.getElementById("output").classList.remove("notcompactmode");
-		document.getElementById("menu").style.display = "none";
+		document.getElementById("menubar").classList.add("hidden");
+		document.getElementById("bottom_menubar").classList.add("hidden");
 		// hide shadows
 		<!-- position: absolute; -->
 		<!-- left: 400px; -->
@@ -1362,12 +1496,14 @@
 	}
 	
 	if (urlParams.has("showmenu")){
-		document.getElementById("menu").style.display = "block";
+		document.getElementById("menubar").classList.remove("hidden");
+		document.getElementById("bottom_menubar").classList.remove("hidden");
 	} else {
 		try {
 			if (window.obsstudio){
 				window.obsstudio.getStatus(function(obsStatus){
-					document.getElementById("menu").style.display = "none";
+					document.getElementById("menubar").classList.add("hidden");
+					document.getElementById("bottom_menubar").classList.add("hidden");
 					document.body.style.overflow = "hidden";
 					mainOutputWindow.style.overflow = "hidden";
 					triggerState=false;
@@ -1395,10 +1531,12 @@
 	} 
 	
 	if (darkmode){
-		document.getElementById("menu").classList.add("darkmode");
+		document.getElementById("menubar").classList.add("darkmode");
+		document.getElementById("bottom_menubar").classList.add("darkmode");
 		document.documentElement.style.setProperty("--background-color", "#000");
 	} else if (darkmode === null){ // defaultmode
-		document.getElementById("menu").classList.add("darkmode");
+		document.getElementById("menubar").classList.add("darkmode");
+		document.getElementById("bottom_menubar").classList.add("darkmode");
 		darkmode = true;
 	} else {
 		document.body.classList.add("lightmode");
@@ -1515,7 +1653,7 @@
 	function pause(ele){
 		pauseState = !pauseState;
 		
-		ele.innerHTML = "⏯︎";
+		//ele.innerHTML = "⏯︎";
 		
 		if (pauseState){
 			ele.classList.add("pressed");
