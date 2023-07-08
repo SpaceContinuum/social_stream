@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Asap&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
 :root {
 	--show-emoji-only: flex ;
 	--list-or-horizontal: flex;
@@ -42,8 +45,8 @@
 	--special-bgcolor-bubble: #0d2240d1;
 	--special-bgcolor-bubble-odd: #08244cd1;
 	
-	--bgcolor-bubble: #000D;
-	--bgcolor-bubble-odd: #111D;
+	--bgcolor-bubble: #fffd;
+	--bgcolor-bubble-odd: #000d;
 }
 .closeBtn {
 	position: absolute;
@@ -168,7 +171,7 @@ a {
 }
 
 body {
-	font-family: 'Sora', Roboto, Arial, sans-serif;
+	font-family: 'Asap', sans-serif;
 	color: var(--font-color);
 	margin: 0 0;
 	background-color: var(--background-color);
@@ -245,6 +248,11 @@ body.lightmode {
 	overflow-wrap: anywhere;
 	line-height: max(var(--message-line-height) , var(--comment-font-size));
 	font-size: var(--comment-font-size);
+	background-color: #fffd;
+	border-radius: 20px;
+	padding: 5px 10px;
+	display: flex;
+	flex-direction: column;
 }
 
 .hl-message img {
@@ -607,8 +615,10 @@ img {
 			min-height:27px;
 		}
 
-		.odd:not(.expand){ 
-			background-color: var(--highlight-base2);
+		.odd:not(.expand){
+			background-color: #000d;
+			border-radius: 20px;
+			padding: 5px 10px;
 		}
 		
 		.highlight-chat:hover {
@@ -616,10 +626,31 @@ img {
 		}
 
 		.highlight-chat.compactmode{
-			background-color: var(--highlight-compact);
-			border-top-right-radius: 3px;
-			border-bottom-right-radius: 3px;
-			padding-right:3px;
+			border-radius: 20px;
+			padding: 50px 5px 5px 5px;
+			background-color: #ffccd0;
+			margin: 0px 0 5px 5px;
+			animation: animate__bounceInDown 0.5s ease-in-out;
+		}
+
+		@keyframes animate__bounceInDown {
+			0% {
+				opacity: 0;
+				transform: translateY(-20px);
+			}
+
+			60% {
+				opacity: 1;
+				transform: translateY(10px);
+			}
+
+			80% {
+				transform: translateY(0);
+			}
+
+			100% {
+				transform: translateY(0);
+			}
 		}
 
 		.odd.compactmode:not(.expand){
