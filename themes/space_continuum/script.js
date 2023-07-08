@@ -1317,17 +1317,21 @@ function redoOdd(){
         var style = window.getComputedStyle(nodes[i]);
         if ((style.visibility !== "hidden") && (style.display !== "none")){
             if (odd){
+                nodes[i].querySelector(".highlight-chat").classList.add("odd");
                 if (bubble && largeavatar){
                     nodes[i].querySelector(".hl-rightside").classList.add("odd");
                 } else if (bubble){
+                    nodes[i].querySelector(".highlight-chat").classList.add("odd");
                     nodes[i].querySelector(".hl-message").classList.add("odd");
                 } else {
                     nodes[i].classList.add("odd");
                 }
             } else {
+                nodes[i].querySelector(".highlight-chat").classList.remove("odd");
                 if (bubble && largeavatar){
                     nodes[i].querySelector(".hl-rightside").classList.remove("odd");
                 } else if (bubble){
+                    nodes[i].querySelector(".highlight-chat").classList.remove("odd");
                     nodes[i].querySelector(".hl-message").classList.remove("odd");
                 } else {
                     nodes[i].classList.remove("odd");
@@ -2498,10 +2502,13 @@ function processData(data, reloaded=false){
         } else if (twoLines){
             var node = createElementFromHTML('<div id="msg_'+data.id+'" '+mid+' data-menu="context-menu" class="highlight-chat'+larger+expand+'" data-source-type="'+data.type+'">'
                 + '<div class="hl-firstline">'
-                + "<div class='queueid'></div>"
                 + showType
+                + '<div class="hl-profile">'
                 + chatImg
                 + chatname
+                + '</div>'
+                + "<div class='queueid'></div>"
+
                 + '</div><div class="hl-message">'
                 + timeArrived
                 + '<span class="hl-content" id="content_'+data.id+'">' + chatmessage + '</span>'
@@ -2510,34 +2517,42 @@ function processData(data, reloaded=false){
                 + donationHTML + '</div>');
         } else if (splitMode){
             var node = createElementFromHTML('<div id="msg_'+data.id+'" '+mid+' data-menu="context-menu" class="highlight-chat'+larger+expand+'" data-source-type="'+data.type+'">'
-                + "<div class='queueid' title='Order in Queue, with 1 being next up.'></div>"
-                + "<div class='leftside "+larger+"'>"
+                + "<div class='hl-profile'>"
                 + chatname
                 + showType
                 + chatImg
+                + "</div>"
+                + "<div class='queueid' title='Order in Queue, with 1 being next up.'></div>"
+                + "<div class='leftside "+larger+"'>"
+
                 + "</div>"
                 + '<div class="hl-message hl-content" id="content_'+data.id+'">' + chatmessage + '</div>'
                 + addImage
                 + donationHTML + '</div>');
         } else if (compactmode){
             var node = createElementFromHTML('<div id="msg_'+data.id+'" '+mid+' data-menu="context-menu" class="highlight-chat'+larger+expand+'" data-source-type="'+data.type+'">'
-                + "<div class='queueid'></div>"
-                + '<div class="hl-message">'
+                + '<div class="hl-profile">'
                 + showType
                 + chatImg
                 + timeArrived
                 + chatname
+                + '</div>'
+                + "<div class='queueid'></div>"
+                + '<div class="hl-message">'
                 + '<span class="hl-content" id="content_'+data.id+'">' + chatmessage + '</span>'
                 + '</div>'
                 + addImage
                 + donationHTML + '</div>');
         } else {
             var node = createElementFromHTML('<div id="msg_'+data.id+'" '+mid+' data-menu="context-menu" class="highlight-chat'+larger+expand+'" data-source-type="'+data.type+'">'
-                + "<div class='queueid'></div>"
+                + '<div class="hl-profile">'
                 + showType
                 + chatImg
                 + timeArrived
                 + chatname
+                + '</div>'
+                + "<div class='queueid'></div>"
+
                 + '<div class="hl-message hl-content" id="content_'+data.id+'">' + chatmessage + '</div>'
                 + addImage
                 + donationHTML + '</div>');

@@ -46,7 +46,7 @@
 	--special-bgcolor-bubble-odd: #08244cd1;
 	
 	--bgcolor-bubble: #fffd;
-	--bgcolor-bubble-odd: #000d;
+	--bgcolor-bubble-odd: rgba(67, 30, 102, 0.87);
 }
 .closeBtn {
 	position: absolute;
@@ -242,6 +242,19 @@ body.lightmode {
 	margin: 1px 0px;
 }
 
+/*top right bottom left*/
+.hl-profile {
+	padding-bottom: 15px;
+}
+
+.hl-profile img {
+	position:relative;
+	padding: 0;
+	display:inline-block;
+	height: 24px;
+	max-width: 24px;
+	max-height: 24px;
+}
 
 .hl-message{
 	margin: auto 1px;
@@ -250,20 +263,13 @@ body.lightmode {
 	font-size: var(--comment-font-size);
 	background-color: #fffd;
 	border-radius: 20px;
+	/*top right bottom left*/
 	padding: 5px 10px;
+	min-width: 200px;
 	display: flex;
 	flex-direction: column;
 }
 
-.hl-message img {
-	position:relative;
-	margin: auto 1px;
-	padding: 0;
-	display:inline-block;
-	height: 24px;
-	max-width: 24px;
-	max-height: 24px;
-}
 
 .hl-message svg {
 	position:relative;
@@ -289,11 +295,11 @@ body.lightmode {
 	margin-top: 4px;
 }
 
-.hl-message img:first-child:not(:last-child){
+.hl-profile img:first-child:not(:last-child){
 	margin: auto 1px auto 5px;
 }
 
-.hl-message img:not(:first-child):last-child{
+.hl-profile img:not(:first-child):last-child{
 	margin: auto 3px auto 1px;
 }
 
@@ -472,7 +478,7 @@ img {
 			max-height: var(--stylized-img);
 		}
 
-		.hl-message img:not(.hl-badge, .icon) {
+		.hl-profile img:not(.hl-badge, .icon) {
 			display: var(--show-images);
 		}
 
@@ -557,6 +563,7 @@ img {
 		.hl-name {
 			font-weight: 700;
 			margin: auto 5px;
+			padding-top: 5px;
 			position:relative;
 			left: 0;
 			width: fit-content;
@@ -625,12 +632,20 @@ img {
 			box-shadow: inset 7px 7px 20px #08080444,inset -7px -7px 20px #FcFcFc22, inset 1px 1px 2px #080804AA,inset -1px -1px 3px #FcFcFc77;
 		}
 
+		/*top right bottom left*/
+/*background-color: #ffccd0;*/
 		.highlight-chat.compactmode{
 			border-radius: 20px;
-			padding: 50px 5px 5px 5px;
-			background-color: #ffccd0;
-			margin: 0px 0 5px 5px;
+			padding: 10px 5px 5px 5px;
+			background-color: #b483ef;
+			margin: 5px 5px 5px 5px;
 			animation: animate__bounceInDown 0.5s ease-in-out;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.highlight-chat.compactmode.odd{
+			background-color: #78fae6;
 		}
 
 		@keyframes animate__bounceInDown {
