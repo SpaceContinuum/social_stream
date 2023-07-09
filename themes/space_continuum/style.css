@@ -45,7 +45,7 @@
 	--special-bgcolor-bubble: #0d2240d1;
 	--special-bgcolor-bubble-odd: #08244cd1;
 	
-	--bgcolor-bubble: #fffd;
+	--bgcolor-bubble: rgba(255, 255, 255, 0.87);
 	--bgcolor-bubble-odd: rgba(67, 30, 102, 0.87);
 }
 .closeBtn {
@@ -232,7 +232,7 @@ body.lightmode {
 
 .hl-firstline .hl-name {
 	line-height: 100%;
-	font-size: 130%;
+	font-size: 100%;
 	vertical-align: bottom;
 	bottom:1px;
 }
@@ -262,14 +262,20 @@ body.lightmode {
 	line-height: max(var(--message-line-height) , var(--comment-font-size));
 	font-size: var(--comment-font-size);
 	background-color: #fffd;
-	border-radius: 20px;
+	border-radius: 10px;
 	/*top right bottom left*/
-	padding: 5px 10px;
+	padding: 10px;
 	min-width: 200px;
 	display: flex;
 	flex-direction: column;
+	outline-width: 2px;
+	outline-color: #008782;
+	outline-style: solid;
 }
 
+.hl-message.odd {
+	outline-color: #431e66;
+}
 
 .hl-message svg {
 	position:relative;
@@ -403,6 +409,7 @@ img {
 	width:fit-content;
 	background-color: var(--highlight-base);
 	min-height: 24px;
+
 }
 
 .highlight-chat.expand{
@@ -624,7 +631,7 @@ img {
 
 		.odd:not(.expand){
 			background-color: #000d;
-			border-radius: 20px;
+			border-radius: 10px;
 			padding: 5px 10px;
 		}
 		
@@ -633,19 +640,29 @@ img {
 		}
 
 		/*top right bottom left*/
-/*background-color: #ffccd0;*/
 		.highlight-chat.compactmode{
-			border-radius: 20px;
-			padding: 10px 5px 5px 5px;
-			background-color: #b483ef;
-			margin: 5px 5px 5px 5px;
+			border-radius: 5px;
+			padding: 3px;
+			background-color: #78fae6;
+			margin: 10px 5px 10px 5px;
 			animation: animate__bounceInDown 0.5s ease-in-out;
 			display: flex;
 			flex-direction: column;
+			background-image: url("x_teal.png");
+			background-position: 95% 10%;
+			background-repeat: no-repeat;
+			outline-width: 3px;
+			outline-color: #008782;
+			outline-style: solid;
 		}
 
 		.highlight-chat.compactmode.odd{
-			background-color: #78fae6;
+
+			background-color: #b483ef;
+			background-image: url("x_purple.png");
+			background-position: 95% 10%;
+			background-repeat: no-repeat;
+			outline-color: #5d2f8c;
 		}
 
 		@keyframes animate__bounceInDown {
@@ -668,9 +685,9 @@ img {
 			}
 		}
 
-		.odd.compactmode:not(.expand){
+		/*.odd.compactmode:not(.expand){
 			background-color: var(--highlight-compact2);
-		}
+		}*/
 
 		.dono-highlight{
 			background-color: var(--donation-bgcolor);
@@ -681,14 +698,14 @@ img {
 		}
 
 		.bubble {
-			border-radius: 20px;
+			border-radius: 5px;
 			padding: 7px 10px;
 			background-color:  var(--bgcolor-bubble);
 			margin: 0px 0 0px 5px;
 		}
 		
 		.bubble.odd{
-			border-radius: 20px;
+			border-radius: 5px;
 			padding: 7px 10px;
 			background-color: var(--bgcolor-bubble-odd); 
 			margin: 0px 0 0px 5px;
@@ -740,13 +757,13 @@ img {
 		}
 		
 		body.lightmode .bubble {
-			border-radius: 20px;
+			border-radius: 5px;
 			padding: 10px;
 			background-color: #EEED;
 			margin: 0px 0 0px 5px;
 		}
 		body.lightmode .bubble.odd{
-			border-radius: 20px;
+			border-radius: 5px;
 			padding: 10px;
 			background-color: #EEE7;
 			margin: 0px 0 0px 5px;

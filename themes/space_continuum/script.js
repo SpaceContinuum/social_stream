@@ -1317,22 +1317,20 @@ function redoOdd(){
         var style = window.getComputedStyle(nodes[i]);
         if ((style.visibility !== "hidden") && (style.display !== "none")){
             if (odd){
-                nodes[i].querySelector(".highlight-chat").classList.add("odd");
                 if (bubble && largeavatar){
                     nodes[i].querySelector(".hl-rightside").classList.add("odd");
                 } else if (bubble){
-                    nodes[i].querySelector(".highlight-chat").classList.add("odd");
                     nodes[i].querySelector(".hl-message").classList.add("odd");
+                    nodes[i].querySelector(".highlight-chat").classList.add("odd");
                 } else {
                     nodes[i].classList.add("odd");
                 }
             } else {
-                nodes[i].querySelector(".highlight-chat").classList.remove("odd");
                 if (bubble && largeavatar){
                     nodes[i].querySelector(".hl-rightside").classList.remove("odd");
                 } else if (bubble){
-                    nodes[i].querySelector(".highlight-chat").classList.remove("odd");
                     nodes[i].querySelector(".hl-message").classList.remove("odd");
+                    nodes[i].querySelector(".highlight-chat").classList.remove("odd");
                 } else {
                     nodes[i].classList.remove("odd");
                 }
@@ -2652,6 +2650,8 @@ function processData(data, reloaded=false){
             var style = window.getComputedStyle(node);
             if ((style.visibility !== "hidden") && (style.display !== "none")){
                 if (odd){
+                    /*Adding "odd" to highlight-chat*/
+                    node.classList.add("odd");
                     if (bubble && largeavatar){
                         node.querySelector(".hl-rightside").classList.add("odd");
                     } else if (bubble){
