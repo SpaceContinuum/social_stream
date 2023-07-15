@@ -2182,6 +2182,9 @@ function stripHtmlFunction(html){
 
 
 function processData(data, reloaded=false){
+    var oddUiButton = "purple";
+    var evenUiButton = "teal";
+    var uiButton = '<img id="img_button" class="hl-ui-button" src="./themes/space_continuum/purple/button_ok.png">'
     //console.log(data);
     if (data.contents){
         data = data.contents;
@@ -2496,6 +2499,7 @@ function processData(data, reloaded=false){
                 + addImage
                 + donationHTML
                 + '</div>'
+                + uiButton
                 + '</div></div>');
         } else if (twoLines){
             var node = createElementFromHTML('<div id="msg_'+data.id+'" '+mid+' data-menu="context-menu" class="highlight-chat'+larger+expand+'" data-source-type="'+data.type+'">'
@@ -2511,6 +2515,7 @@ function processData(data, reloaded=false){
                 + timeArrived
                 + '<span class="hl-content" id="content_'+data.id+'">' + chatmessage + '</span>'
                 + '</div>'
+                + uiButton
                 + addImage
                 + donationHTML + '</div>');
         } else if (splitMode){
@@ -2525,6 +2530,7 @@ function processData(data, reloaded=false){
 
                 + "</div>"
                 + '<div class="hl-message hl-content" id="content_'+data.id+'">' + chatmessage + '</div>'
+                + uiButton
                 + addImage
                 + donationHTML + '</div>');
         } else if (compactmode){
@@ -2539,6 +2545,7 @@ function processData(data, reloaded=false){
                 + '<div class="hl-message">'
                 + '<span class="hl-content" id="content_'+data.id+'">' + chatmessage + '</span>'
                 + '</div>'
+                + uiButton
                 + addImage
                 + donationHTML + '</div>');
         } else {
@@ -2552,6 +2559,7 @@ function processData(data, reloaded=false){
                 + "<div class='queueid'></div>"
 
                 + '<div class="hl-message hl-content" id="content_'+data.id+'">' + chatmessage + '</div>'
+                + uiButton
                 + addImage
                 + donationHTML + '</div>');
         }

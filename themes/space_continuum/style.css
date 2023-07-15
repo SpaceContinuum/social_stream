@@ -21,9 +21,9 @@
 	--stylized-emoji: 140%;
 	--stylized-img: 23px;
 	--show-images: inline-block;
-	--comment-font-size: unset;
+	--comment-font-size: 16px;
 	--message-line-height: 22px;
-	--author-font-size: 17px;
+	--author-font-size: 10px;
 	--electron-drag-fix: drag;
 	--time-arrived-padding: 1px;
 	--profile-pic-border: 0 solid black;
@@ -162,16 +162,16 @@ a {
 }
 /* latin */
 @font-face {
-	font-family: 'Sora';
+	font-family: 'Kyrou 9 Regular Bold';
+	src: url('./grixel_kyrou_9/Kyrou 9 Regular Bold.ttf') format('truetype');
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url(./thirdparty//xMQbuFFYT72XzQUpDg.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 body {
-	font-family: 'Asap', sans-serif;
+	font-family: 'Kyrou 9 Regular Bold', sans-serif;
 	color: var(--font-color);
 	margin: 0 0;
 	background-color: var(--background-color);
@@ -257,7 +257,7 @@ body.lightmode {
 }
 
 .hl-message{
-	margin: auto 1px;
+	margin: 0px 5px 0px 5px;
 	overflow-wrap: anywhere;
 	line-height: max(var(--message-line-height) , var(--comment-font-size));
 	font-size: var(--comment-font-size);
@@ -315,6 +315,12 @@ body.lightmode {
 
 .hl-message  img:first-child:not(:last-child){
 	margin: auto 1px auto 1px;
+}
+
+.hl-ui-button {
+	max-width: 70%;
+	max-height: 70%;
+	margin-top: 5px;
 }
 
 .highlight {
@@ -479,7 +485,7 @@ img {
 			animation: ani 400ms alternate 1;
 		}
 
-		.larger-emojis img:not(.hl-badge, .icon) {
+		.larger-emojis img:not(.hl-badge, .icon, .hl-ui-button) {
 			height: var(--stylized-img);
 			max-width: var(--stylized-img);
 			max-height: var(--stylized-img);
@@ -630,7 +636,7 @@ img {
 		}
 
 		.odd:not(.expand){
-			background-color: #000d;
+			background-color: #431e66;
 			border-radius: 10px;
 			padding: 5px 10px;
 		}
@@ -649,7 +655,7 @@ img {
 			display: flex;
 			flex-direction: column;
 			background-image: url("x_teal.png");
-			background-position: 95% 10%;
+			background-position: calc(100% - 2px) 2px;
 			background-repeat: no-repeat;
 			outline-width: 3px;
 			outline-color: #008782;
@@ -660,7 +666,7 @@ img {
 
 			background-color: #b483ef;
 			background-image: url("x_purple.png");
-			background-position: 95% 10%;
+			background-position: calc(100% - 2px) 2px;
 			background-repeat: no-repeat;
 			outline-color: #5d2f8c;
 		}
@@ -701,14 +707,12 @@ img {
 			border-radius: 5px;
 			padding: 7px 10px;
 			background-color:  var(--bgcolor-bubble);
-			margin: 0px 0 0px 5px;
 		}
 		
 		.bubble.odd{
 			border-radius: 5px;
 			padding: 7px 10px;
-			background-color: var(--bgcolor-bubble-odd); 
-			margin: 0px 0 0px 5px;
+			background-color: var(--bgcolor-bubble-odd);
 		}
 
 		.bubble.dono-highlight{
