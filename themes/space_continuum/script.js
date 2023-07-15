@@ -2184,8 +2184,8 @@ function getRandomWord() {
     const wordWeights = [
         { word: "ok", weight: 0.8 },
         { word: "cancel", weight: 0.05 },
-        { word: "nani", weight: 0.01 },
-        { word: "heart", weight: 0.04 },
+        { word: "nani", weight: 0.02 },
+        { word: "heart", weight: 0.03 },
         { word: "star", weight: 0.05 },
         { word: "cat", weight: 0.05 }
     ];
