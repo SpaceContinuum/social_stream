@@ -2180,12 +2180,50 @@ function stripHtmlFunction(html){
     return tmp.textContent || tmp.innerText || "";
 }
 
+function getRandomWord() {
+    const wordWeights = [
+        { word: "ok", weight: 0.8 },
+        { word: "cancel", weight: 0.05 },
+        { word: "nani", weight: 0.01 },
+        { word: "heart", weight: 0.04 },
+        { word: "star", weight: 0.05 },
+        { word: "cat", weight: 0.05 }
+    ];
 
-function processData(data, reloaded=false){
+    const random = Math.random();
+    let cumulativeWeight = 0;
+
+    for (const { word, weight } of wordWeights) {
+        cumulativeWeight += weight;
+
+        if (random < cumulativeWeight) {
+            return word;
+        }
+    }
+
+    // Fallback: Return "ok" as the default word
+    return "ok";
+}
+
+function chooseUIButton() {
+    var uiColor = "";
     var oddUiButton = "purple";
     var evenUiButton = "teal";
-    var uiButton = '<img id="img_button" class="hl-ui-button" src="./themes/space_continuum/purple/button_ok.png">'
+    var buttonName = getRandomWord();
+
+    if (odd) {
+        uiColor = oddUiButton;
+    }
+    else {
+        uiColor = evenUiButton;
+    }
+    var uiButton = '<img id="img_button" class="hl-ui-button" src="./themes/space_continuum/'+ uiColor +'/button_'+ buttonName +'.png">';
+    return uiButton
+}
+
+function processData(data, reloaded=false){
     //console.log(data);
+    uiButton = chooseUIButton();
     if (data.contents){
         data = data.contents;
 
@@ -2667,6 +2705,7 @@ function processData(data, reloaded=false){
                     } else {
                         node.classList.add("odd");
                     }
+
                 }
                 odd = !odd;
             }
